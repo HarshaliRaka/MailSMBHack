@@ -45,7 +45,7 @@ defaults :content_type => 'html'
 email :send_notification_payslip do |obj|
   to obj[:to]
   subject obj[:subject]
-  locals :employee => obj[:employee],:month => obj[:month]
+  locals :employee => obj[:employee],:month => obj[:month],:payroll => obj['payroll']
   render 'send_notification_payslip'
   via :smtp
 end
@@ -53,7 +53,7 @@ end
 email :send_notification_taxslip do |obj|
   to obj[:to]
   subject obj[:subject]
-  locals :employee => obj[:employee]
+  locals :employee => obj[:employee],:payroll => obj['payroll']
   render 'send_notification_taxslip'
   via :smtp
 end
@@ -61,7 +61,7 @@ end
 email :send_notification_savetax do |obj|
   to obj[:to]
   subject obj[:subject]
-  locals :employee => obj[:employee]
+  locals :employee => obj[:employee],:savetax => obj['savetax']
   render 'send_notification_ques'
   via :smtp
 end

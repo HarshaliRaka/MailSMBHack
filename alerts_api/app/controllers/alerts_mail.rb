@@ -1,8 +1,11 @@
 AlertsApi::App.controllers :alerts_mail do
-  
+
   post :send_notification, :provides => [:json] do
     data = request.body.read
     params = JSON.parse(data)
+    p "------------------------------"
+    p params
+    p "------------------------------"
     begin
     email do
      from "thunderingherdhacksmb@gmail.com"
@@ -21,8 +24,8 @@ AlertsApi::App.controllers :alerts_mail do
       logger.info e.backtrace.inspect
     end
   end
-  
- 
 
-  
+
+
+
 end
