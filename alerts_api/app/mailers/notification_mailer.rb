@@ -62,7 +62,7 @@ email :send_notification_savetax do |obj|
   to obj[:to]
   subject obj[:subject]
   locals :employee => obj[:employee],:savetax => obj['savetax']
-  render 'send_notification_ques'
+  render 'send_notification_savetax'
   via :smtp
 end
 
